@@ -9,25 +9,19 @@
  * Main module of the application.
  */
 angular
-  .module('websiteApp', [
-    'ngAnimate',
-    'ngCookies',
-    'ngResource',
-    'ngRoute',
-    'ngSanitize',
-    'ngTouch'
-  ])
-  .config(function ($routeProvider) {
-    $routeProvider
-      .when('/', {
-        templateUrl: 'views/main.html',
-        controller: 'MainCtrl'
-      })
-      .when('/about', {
-        templateUrl: 'views/about.html',
-        controller: 'AboutCtrl'
-      })
-      .otherwise({
-        redirectTo: '/'
-      });
-  });
+    .module('websiteApp', [
+        'ngAnimate',
+        'ngCookies',
+        'ngResource',
+        'ngSanitize',
+        'ngTouch',
+        'ui.router'
+    ])
+    .config(function ($stateProvider) {
+
+        $stateProvider
+            .state('home', {
+                url : '/',
+                templateUrl : 'views/home.html'
+            });
+    });
